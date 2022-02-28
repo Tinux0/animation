@@ -1,0 +1,62 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+while true do
+local Nigga = Instance.new("ScreenGui")
+local NiggaV2 = Instance.new("Frame")
+local Levitaition = Instance.new("TextButton")
+
+--Properties:
+Nigga.Name = "Nigga"
+Nigga.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+NiggaV2.Name = "NiggaV2"
+NiggaV2.Parent = Nigga
+NiggaV2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NiggaV2.Position = UDim2.new(0, 0, 0.375460118, 0)
+NiggaV2.Size = UDim2.new(0, 100, 0, 100)
+
+Levitaition.Name = "Levitaition"
+Levitaition.Parent = NiggaV2
+Levitaition.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Levitaition.Position = UDim2.new(0, 0, 0.375460118, 0)
+Levitaition.Size = UDim2.new(0, 100, 0, 100)
+Levitaition.Font = Enum.Font.SourceSans
+Levitaition.Text = "Levitaition"
+Levitaition.TextColor3 = Color3.fromRGB(0, 0, 0)
+Levitaition.TextSize = 14.000
+Levitaition.TextWrapped = true
+
+
+local Char = game.Players.LocalPlayer.Character
+
+--Levitaition
+
+Levitaition.MouseButton1Down:connect (function()
+	Char.Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616003713"
+	Char.Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616005863"
+	Char.Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
+	Char.Animate.idle.Animation1.Weight.Value = "9"
+	Char.Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
+	Char.Animate.idle.Animation2.Weight.Value = "1"
+	Char.Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616008936"
+	Char.Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616010382"
+	Char.Animate.swim.Swim.AnimationId = "http://www.roblox.com/asset/?id=616011509"
+	Char.Animate.swimidle.SwimIdle.AnimationId = "http://www.roblox.com/asset/?id=616012453"
+	Char.Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616013216"
+end)
+
+function onKeyPress(inputObject, gameProcessedEvent)
+	if inputObject.KeyCode == Enum.KeyCode.Insert then
+		if Nigga.Enabled == false then
+			Nigga.Enabled = true
+		else
+			Nigga.Enabled = false
+		end
+	end
+end
+
+game:GetService("UserInputService").InputBegan:connect(onKeyPress)
+	wait(1) 
+end
